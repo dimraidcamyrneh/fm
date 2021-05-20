@@ -1,0 +1,120 @@
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Fiona McElhany</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <!--[if lte IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+    	
+    <script src="https://code.jquery.com/jquery-3.2.0.min.js" integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/jquery.tagcanvas.min.js"></script>	
+		
+		<div id="myCanvasContainer">
+		 <canvas width="166" height="803" id="myCanvas">
+		  <p>Anything in here will be replaced on browsers that support the canvas element</p>
+		  <ul>
+		   <li><a><img src="img/battery.png" width="80" height="285"></a></li>
+		   <li><a><img src="img/bone.png" width="100" height="118"></a></li>
+		   <li><a><img src="img/glass.png" width="280" height="156"></a></li>
+		   <li><a><img class="clouds" src="img/cloud-2.png" height="200" width="360"></a></li>
+		   <li><a><img src="img/goop.png" width="280" height="311"></a></li>
+		   <li><a><img src="img/net.png" width="300" height="373"></a></li>
+		   <li><a><img src="img/1.jpg" width="400" height="267"></a></li>
+		  </ul>
+		 </canvas>
+		</div>
+		
+		
+		<script type="text/javascript">
+			
+			(function() {
+    var canvas = document.getElementById('myCanvas'),
+            context = canvas.getContext('2d');
+           
+
+    // resize the canvas to fill browser window dynamically
+    window.addEventListener('resize', resizeCanvas, false);
+
+    function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            /**
+             * Your drawings need to be inside this function otherwise they will be reset when 
+             * you resize the browser window and the canvas goes will be cleared.
+             */
+            drawStuff(); 
+    }
+    resizeCanvas();
+
+    function drawStuff() {
+	    
+	    try {
+	      $('#myCanvas').tagcanvas({
+		    	textColour : '#ffffff',
+					outlineMethod : 'none',
+					centreImage : 'img/battery.png',
+					maxSpeed : 0.04,
+					depth : 0.75,
+					zoomStep : 0,
+					wheelZoom : true,
+					zoom : 1.3,
+					clickToFront : 400,
+					noSelect : true,
+					dragControl: true
+				});
+	    } catch(e) {
+	      // something went wrong, hide the canvas container
+	      document.getElementById('myCanvasContainer').style.display = 'none';
+	    }
+ 
+	  // Save the state, so we can undo the clipping
+//    context.save();
+    
+    
+    // Create a shape, of some sort
+//    context.beginPath();
+//    context.moveTo(10, 10);
+//    context.lineTo(100, 30);
+//    context.lineTo(180, 10);
+//    context.lineTo(200, 60);
+//   context.arcTo(180, 70, 120, 0, 10);
+//    context.lineTo(200, 180);
+//    context.lineTo(100, 150);
+//    context.lineTo(70, 180);
+//    context.lineTo(20, 130);
+//    context.lineTo(50, 70);
+//    context.closePath();
+//    context.fillStyle = "#a0a0a0";
+//		context.fillRect(0, 0, canvas.width, canvas.height);
+    // Clip to the current path
+//    context.clip();    
+       
+    }
+})();
+			
+		</script>
+		
+				
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+        window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+        ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async="" defer=""></script>
+    
+  
+</body></html>
